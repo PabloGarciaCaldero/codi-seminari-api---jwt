@@ -20,6 +20,11 @@ const UserSchema = new Schema<User>(
             type:String,
             default:"Soy la descripción",
         },
+        role:{
+            type:String,
+            unique:true,
+            enum:["admin","basic"]
+        }
     },
     {
         versionKey: false,

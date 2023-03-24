@@ -8,9 +8,20 @@ const generateToken = async (id:string) => {
     return jwt;
 }
 
+
+
+const generateToken2 = async (mail:string, role:string) => {
+    const variables = [{mail}, {role}];
+    const jwt = sign(variables, JWT_SECRET, {
+        expiresIn: "2h",
+    });
+    return jwt;
+}
+
+
 const verifyToken = async (jwt:string) => {
     const isOk = verify(jwt, JWT_SECRET);
     return isOk;
 }
 
-export {generateToken, verifyToken};
+export {generateToken,generateToken2, verifyToken};
